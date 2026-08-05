@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-fraunces: "Fraunces", serif;
+    --font-manrope: "Manrope", sans-serif;
+  }
+
+  * {
+    @apply border-blush-200/60;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-cream text-ink font-body antialiased;
+  }
+
+  .dark body {
+    @apply bg-[#1B1120] text-blush-50;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display;
+  }
+
+  ::selection {
+    @apply bg-blush-300/60 text-ink;
+  }
+
+  /* Foco visible accesible */
+  :focus-visible {
+    outline: 2px solid theme("colors.mauve.500");
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/50 backdrop-blur-xl border border-white/60 dark:bg-white/5 dark:border-white/10;
+  }
+
+  .glass-card {
+    @apply bg-white/70 backdrop-blur-2xl border border-white/70 shadow-card dark:bg-[#2B1C33]/60 dark:border-white/10;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-blush-500 via-blush-400 to-mauve-500 bg-clip-text text-transparent;
+  }
+
+  .btn-gradient {
+    @apply bg-gradient-to-r from-blush-400 via-blush-500 to-mauve-500 bg-[length:200%_auto] transition-[background-position] duration-500 hover:bg-right;
+  }
+
+  .container-px {
+    @apply px-6 md:px-10 lg:px-16;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

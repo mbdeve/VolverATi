@@ -1,0 +1,18 @@
+export const PROVINCES = [
+  "Distrito Nacional",
+  "Santo Domingo",
+  "Santiago",
+  "La Vega",
+  "San Cristóbal",
+  "Puerto Plata",
+  "La Altagracia",
+  "San Pedro de Macorís",
+  "Duarte",
+  "Espaillat",
+  "La Romana",
+  "Barahona",
+  "Monseñor Nouel",
+  "Peravia",
+  "María Trinidad Sánchez",
+  "Otra",
+] as const;
