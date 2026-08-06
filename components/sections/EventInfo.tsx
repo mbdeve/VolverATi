@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Calendar, Clock, MapPin, Timer, Users, Tag } from "lucide-react";
 import { useCountdown } from "@/hooks/use-countdown";
-import { EVENT } from "@/lib/event-config";
+import { EVENT, TICKET_TYPES } from "@/lib/event-config";
 import { formatRD } from "@/lib/utils";
 
 const details = [
@@ -16,7 +16,11 @@ const details = [
     label: "Cupos disponibles",
     value: `${EVENT.seatsLeft} de ${EVENT.totalSeats}`,
   },
-  { icon: Tag, label: "Precio", value: `${formatRD(EVENT.pricePerTicket)} / boleto` },
+  {
+    icon: Tag,
+    label: "Precio",
+    value: `Desde ${formatRD(TICKET_TYPES[0].price)}`,
+  },
 ];
 
 const countdownUnits = [

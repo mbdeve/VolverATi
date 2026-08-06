@@ -21,7 +21,7 @@
   }
 
   .dark body {
-    @apply bg-[#1B1120] text-blush-50;
+    @apply bg-[#211710] text-blush-50;
   }
 
   h1, h2, h3, h4 {
@@ -46,15 +46,15 @@
   }
 
   .glass-card {
-    @apply bg-white/70 backdrop-blur-2xl border border-white/70 shadow-card dark:bg-[#2B1C33]/60 dark:border-white/10;
+    @apply bg-white/70 backdrop-blur-2xl border border-white/70 shadow-card dark:bg-[#2A1D14]/60 dark:border-white/10;
   }
 
   .text-gradient {
-    @apply bg-gradient-to-r from-blush-500 via-blush-400 to-mauve-500 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-blush-500 via-blush-400 to-blush-700 bg-clip-text text-transparent;
   }
 
   .btn-gradient {
-    @apply bg-gradient-to-r from-blush-400 via-blush-500 to-mauve-500 bg-[length:200%_auto] transition-[background-position] duration-500 hover:bg-right;
+    @apply bg-gradient-to-r from-blush-400 via-blush-500 to-blush-700 bg-[length:200%_auto] transition-[background-position] duration-500 hover:bg-right;
   }
 
   .container-px {

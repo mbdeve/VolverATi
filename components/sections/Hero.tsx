@@ -35,7 +35,7 @@ export function Hero() {
             className="mb-6 inline-flex items-center gap-2 rounded-full glass px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-mauve-700 dark:text-blush-100"
           >
             <Sparkle className="h-3.5 w-3.5 text-blush-500" />
-            Un espacio para respirar
+            Segunda edición
           </motion.span>
 
           <motion.h1
@@ -44,8 +44,7 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-balance font-display text-5xl font-medium leading-[1.05] text-ink dark:text-blush-50 sm:text-6xl lg:text-7xl"
           >
-            Vuelve a{" "}
-            <span className="italic text-gradient">ti misma</span>
+            Volver <span className="italic text-gradient">a Ti</span>
           </motion.h1>
 
           <motion.p
@@ -54,9 +53,8 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.35 }}
             className="mx-auto mt-6 max-w-lg text-balance text-lg leading-relaxed text-ink/70 dark:text-blush-100/70 lg:mx-0"
           >
-            Un día para pausar, sanar y reconectar contigo. Meditación,
-            conferencias transformadoras y una comunidad que te acompaña de
-            vuelta a casa.
+            Un día completo para sanar, crecer y florecer. Saldrás de acá
+            conectada contigo misma.
           </motion.p>
 
           <motion.div

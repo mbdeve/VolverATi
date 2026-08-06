@@ -1,8 +1,8 @@
 "use client";
 
 import * as React from "react";
+import Image from "next/image";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
-import { Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/theme-toggle";
 
@@ -30,15 +30,24 @@ export function Header() {
         <div className="hidden sm:block" />
 
         <div className="col-span-2 flex items-center justify-between sm:col-span-1 sm:justify-self-center">
-          <a href="#inicio" className="flex flex-col items-center gap-1 text-center">
-            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-blush-400 to-mauve-500 text-white shadow-soft">
-              <Sparkles className="h-4 w-4" />
+          <a href="#inicio" className="flex items-center gap-2 text-center">
+            <span className="relative h-11 w-11 shrink-0 overflow-hidden rounded-full bg-white shadow-soft">
+              <Image
+                src="/images/logo/logo.jpeg"
+                alt="Logotipo de Volver a Ti"
+                fill
+                sizes="44px"
+                className="object-cover"
+                priority
+              />
             </span>
-            <span className="font-display text-lg font-semibold tracking-wide text-ink dark:text-blush-50">
-              VOLVER A TI
-            </span>
-            <span className="hidden text-[11px] font-medium uppercase tracking-[0.2em] text-mauve-600/80 dark:text-blush-200/70 md:block">
-              Evento de Reconexión, Bienestar y Transformación
+            <span className="flex flex-col items-start">
+              <span className="font-display text-lg font-semibold tracking-wide text-ink dark:text-blush-50">
+                VOLVER A TI
+              </span>
+              <span className="hidden text-[11px] font-medium uppercase tracking-[0.2em] text-mauve-600/80 dark:text-blush-200/70 md:block">
+                Sanar · Crecer · Florecer
+              </span>
             </span>
           </a>
         </div>

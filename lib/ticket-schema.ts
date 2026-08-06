@@ -12,6 +12,9 @@ export const ticketFormSchema = z.object({
     .regex(/^[0-9+()\s-]+$/, "Ingresa solo números y símbolos válidos"),
   city: z.string().min(2, "Ingresa tu ciudad"),
   province: z.string().min(2, "Selecciona tu provincia"),
+  ticketType: z.enum(["estandar", "vip"], {
+    errorMap: () => ({ message: "Selecciona un tipo de boleta" }),
+  }),
   quantity: z.coerce.number().int().min(1).max(5),
   notes: z.string().max(300, "Máximo 300 caracteres").optional(),
   paymentMethod: z.enum(["credito", "debito", "transferencia", "pago-movil"], {

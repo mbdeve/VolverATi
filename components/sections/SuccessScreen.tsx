@@ -7,7 +7,7 @@ import { CheckCircle2, Download, Mail, RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { formatRD } from "@/lib/utils";
 import type { TicketFormValues } from "@/lib/ticket-schema";
-import { EVENT } from "@/lib/event-config";
+import { EVENT, TICKET_TYPES, getTicketPrice } from "@/lib/event-config";
 
 interface SuccessScreenProps {
   orderId: string;
@@ -18,12 +18,20 @@ interface SuccessScreenProps {
 export function SuccessScreen({ orderId, data, onReset }: SuccessScreenProps) {
   const [qrDataUrl, setQrDataUrl] = React.useState<string | null>(null);
   const [emailSent, setEmailSent] = React.useState(false);
-  const total = data.quantity * EVENT.pricePerTicket;
+  const ticketLabel =
+    TICKET_TYPES.find((t) => t.id === data.ticketType)?.label ?? "Boleta";
+  const total = data.quantity * getTicketPrice(data.ticketType);
 
   React.useEffect(() => {
     QRCode.toDataURL(
-      JSON.stringify({ orderId, name: data.fullName, quantity: data.quantity, event: EVENT.name }),
-      { margin: 1, width: 220, color: { dark: "#4A2465", light: "#00000000" } }
+      JSON.stringify({
+        orderId,
+        name: data.fullName,
+        ticketType: data.ticketType,
+        quantity: data.quantity,
+        event: EVENT.name,
+      }),
+      { margin: 1, width: 220, color: { dark: "#8F3D22", light: "#00000000" } }
     ).then(setQrDataUrl);
   }, [orderId, data]);
 
@@ -78,7 +86,11 @@ export function SuccessScreen({ orderId, data, onReset }: SuccessScreenProps) {
 
       <dl className="mt-8 grid grid-cols-2 gap-4 rounded-3xl bg-white/60 p-5 text-left text-sm dark:bg-white/5">
         <div>
-          <dt className="text-ink/50 dark:text-blush-100/50">Boletos</dt>
+          <dt className="text-ink/50 dark:text-blush-100/50">Tipo de boleta</dt>
+          <dd className="font-medium text-ink dark:text-blush-50">{ticketLabel}</dd>
+        </div>
+        <div>
+          <dt className="text-ink/50 dark:text-blush-100/50">Cantidad</dt>
           <dd className="font-medium text-ink dark:text-blush-50">{data.quantity}</dd>
         </div>
         <div>
@@ -88,12 +100,6 @@ export function SuccessScreen({ orderId, data, onReset }: SuccessScreenProps) {
         <div>
           <dt className="text-ink/50 dark:text-blush-100/50">Correo</dt>
           <dd className="truncate font-medium text-ink dark:text-blush-50">{data.email}</dd>
-        </div>
-        <div>
-          <dt className="text-ink/50 dark:text-blush-100/50">Método de pago</dt>
-          <dd className="font-medium capitalize text-ink dark:text-blush-50">
-            {data.paymentMethod.replace("-", " ")}
-          </dd>
         </div>
       </dl>
 

@@ -16,32 +16,40 @@ const config: Config = {
     },
     extend: {
       colors: {
+        // Coral / terracota — tomado del logo real "Volver a Ti"
         blush: {
-          50: "#FFF9FB",
-          100: "#FDEFF4",
-          200: "#FBDDE9",
-          300: "#F7C2D8",
-          400: "#F09CBD",
-          500: "#E572A0",
-          600: "#D14D80",
-          700: "#AE3564",
-          800: "#8A2B52",
-          900: "#5C1D38",
+          50: "#FDF6F2",
+          100: "#FBEAE1",
+          200: "#F5D2C0",
+          300: "#EDB093",
+          400: "#E08D68",
+          500: "#C97B5D",
+          600: "#B5502E",
+          700: "#8F3D22",
+          800: "#6E2F1B",
+          900: "#4A2012",
         },
+        // Azul marino — acento del logo ("SANAR · CRECER · FLORECER")
         mauve: {
-          50: "#FAF7FC",
-          100: "#F1E9F8",
-          200: "#E1CDF1",
-          300: "#C9A6E4",
-          400: "#AD7BD3",
-          500: "#9257C1",
-          600: "#7A3FA8",
-          700: "#623086",
-          800: "#4A2465",
-          900: "#2E1640",
+          50: "#F4F6F8",
+          100: "#E4E9EE",
+          200: "#C3CEDA",
+          300: "#9FB0C2",
+          400: "#6C84A0",
+          500: "#3E5872",
+          600: "#2C3E56",
+          700: "#22344A",
+          800: "#182636",
+          900: "#0F1822",
         },
-        cream: "#FFFDFC",
-        ink: "#2B1C33",
+        // Dorado / mostaza — usado en el banner de pre-venta
+        gold: {
+          400: "#D2B48C",
+          500: "#B8935A",
+          600: "#9C7A45",
+        },
+        cream: "#FBF3EE",
+        ink: "#2E2018",
       },
       fontFamily: {
         display: ["var(--font-fraunces)", "serif"],
@@ -57,8 +65,8 @@ const config: Config = {
         card: "0 20px 60px -15px rgba(74, 36, 101, 0.18)",
       },
       backgroundImage: {
-        "aurora": "radial-gradient(60% 60% at 20% 20%, rgba(240,156,189,0.35) 0%, rgba(240,156,189,0) 60%), radial-gradient(50% 50% at 80% 30%, rgba(173,123,211,0.35) 0%, rgba(173,123,211,0) 60%), radial-gradient(55% 55% at 50% 90%, rgba(233,196,220,0.35) 0%, rgba(233,196,220,0) 60%)",
-        "petal-gradient": "linear-gradient(135deg, #F09CBD 0%, #AD7BD3 100%)",
+        "aurora": "radial-gradient(60% 60% at 20% 20%, rgba(224,141,104,0.30) 0%, rgba(224,141,104,0) 60%), radial-gradient(50% 50% at 80% 30%, rgba(44,62,86,0.16) 0%, rgba(44,62,86,0) 60%), radial-gradient(55% 55% at 50% 90%, rgba(201,123,93,0.25) 0%, rgba(201,123,93,0) 60%)",
+        "petal-gradient": "linear-gradient(135deg, #E08D68 0%, #B5502E 100%)",
       },
       keyframes: {
         breathe: {

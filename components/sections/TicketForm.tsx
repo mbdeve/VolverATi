@@ -17,14 +17,15 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { PaymentMethodPicker } from "@/components/PaymentMethodPicker";
+import { TicketTypePicker } from "@/components/TicketTypePicker";
 import { PayButton } from "@/components/PayButton";
 import { SuccessScreen } from "@/components/sections/SuccessScreen";
 import { AuroraBackground } from "@/components/AuroraBackground";
 
 import { ticketFormSchema, type TicketFormValues } from "@/lib/ticket-schema";
-import { EVENT } from "@/lib/event-config";
+import { EVENT, getTicketPrice } from "@/lib/event-config";
 import { PROVINCES } from "@/lib/provinces";
-import { cn, formatRD, generateOrderId } from "@/lib/utils";
+import { formatRD, generateOrderId } from "@/lib/utils";
 
 const TICKET_QUANTITIES = [1, 2, 3, 4, 5];
 
@@ -44,13 +45,15 @@ export function TicketForm() {
   } = useForm<TicketFormValues>({
     resolver: zodResolver(ticketFormSchema),
     defaultValues: {
+      ticketType: "estandar",
       quantity: 1,
       paymentMethod: undefined,
     },
   });
 
   const quantity = watch("quantity") || 1;
-  const total = quantity * EVENT.pricePerTicket;
+  const ticketType = watch("ticketType") || "estandar";
+  const total = quantity * getTicketPrice(ticketType);
 
   const onSubmit = async (values: TicketFormValues) => {
     setLoading(true);
@@ -107,6 +110,20 @@ export function TicketForm() {
                 noValidate
                 className="glass-card rounded-4xl p-6 sm:p-10"
               >
+                <div className="mb-8">
+                  <Controller
+                    control={control}
+                    name="ticketType"
+                    render={({ field }) => (
+                      <TicketTypePicker
+                        value={field.value}
+                        onChange={field.onChange}
+                        error={errors.ticketType?.message}
+                      />
+                    )}
+                  />
+                </div>
+
                 <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
                   <div className="sm:col-span-2">
                     <Label htmlFor="fullName">Nombre completo</Label>

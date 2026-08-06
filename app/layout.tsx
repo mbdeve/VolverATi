@@ -23,23 +23,24 @@ const siteUrl = "https://volveratievento.com";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Volver a Ti | Evento de Bienestar y Crecimiento",
+    default: "Volver a Ti | Segunda Edición — Sanar, Crecer, Florecer",
     template: "%s | Volver a Ti",
   },
   description:
-    "Volver a Ti es un evento de reconexión, bienestar y transformación. Un espacio para respirar, sanar y crecer. Reserva tu boleto hoy.",
+    "Volver a Ti, segunda edición: un día completo para sanar, crecer y florecer en Villa Tabiki, Las Terrenas. Reserva tu boleta hoy.",
   keywords: [
     "evento de bienestar",
     "retiro de bienestar República Dominicana",
+    "Villa Tabiki Las Terrenas",
     "meditación",
     "crecimiento personal",
     "Volver a Ti",
   ],
   authors: [{ name: "Volver a Ti" }],
   openGraph: {
-    title: "Volver a Ti | Evento de Bienestar y Crecimiento",
+    title: "Volver a Ti | Segunda Edición — Sanar, Crecer, Florecer",
     description:
-      "Un espacio para reconectar contigo. Meditación, conferencias, networking y bienestar en un solo día.",
+      "Un día completo para sanar, crecer y florecer en Villa Tabiki, Las Terrenas.",
     url: siteUrl,
     siteName: "Volver a Ti",
     locale: "es_DO",
@@ -48,9 +49,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Volver a Ti | Evento de Bienestar y Crecimiento",
-    description:
-      "Un espacio para reconectar contigo. Reserva tu boleto para Volver a Ti.",
+    title: "Volver a Ti | Segunda Edición — Sanar, Crecer, Florecer",
+    description: "Reserva tu boleta para Volver a Ti, segunda edición.",
     images: ["/images/og-cover.jpg"],
   },
   robots: {
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "#FFF9FB" },
-    { media: "(prefers-color-scheme: dark)", color: "#1B1120" },
+    { media: "(prefers-color-scheme: dark)", color: "#211710" },
   ],
   width: "device-width",
   initialScale: 1,

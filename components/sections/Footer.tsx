@@ -1,4 +1,5 @@
-import { Instagram, Facebook, Sparkles } from "lucide-react";
+import Image from "next/image";
+import { Instagram, Facebook } from "lucide-react";
 
 const socials = [
   {
@@ -22,11 +23,17 @@ const legalLinks = [
 
 export function Footer() {
   return (
-    <footer className="relative border-t border-blush-200/60 bg-white/60 py-14 dark:border-white/10 dark:bg-[#1B1120]/60">
+    <footer className="relative border-t border-blush-200/60 bg-white/60 py-14 dark:border-white/10 dark:bg-[#211710]/60">
       <div className="container-px mx-auto flex flex-col items-center gap-8 text-center">
         <a href="#inicio" className="flex items-center gap-2">
-          <span className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-blush-400 to-mauve-500 text-white">
-            <Sparkles className="h-3.5 w-3.5" />
+          <span className="relative h-9 w-9 shrink-0 overflow-hidden rounded-full bg-white shadow-soft">
+            <Image
+              src="/images/logo/logo.jpeg"
+              alt="Logotipo de Volver a Ti"
+              fill
+              sizes="36px"
+              className="object-cover"
+            />
           </span>
           <span className="font-display text-base font-semibold text-ink dark:text-blush-50">
             VOLVER A TI
