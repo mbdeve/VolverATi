@@ -62,11 +62,13 @@ export function SuccessScreen({ orderId, data, onReset }: SuccessScreenProps) {
       </motion.div>
 
       <h3 className="mt-6 font-display text-2xl text-ink dark:text-blush-50 sm:text-3xl">
-        Gracias por tu compra, {data.fullName.split(" ")[0]}
+        ¡Gracias, {data.fullName.split(" ")[0]}!
       </h3>
       <p className="mt-2 text-sm text-ink/60 dark:text-blush-100/60">
-        Tu lugar en <strong>{EVENT.name}</strong> está confirmado. Te esperamos
-        el {EVENT.dateLabel}.
+        Registramos tu reserva para <strong>{EVENT.name}</strong>. Realiza la
+        transferencia por el monto indicado y envía tu comprobante al
+        WhatsApp de la Comunidad Volver a Ti para confirmar tu lugar. Te
+        esperamos el {EVENT.dateLabel}.
       </p>
 
       <div className="mt-6 flex items-center justify-center gap-2 rounded-full bg-blush-50 px-4 py-2 text-sm font-medium text-mauve-700 dark:bg-white/10 dark:text-blush-100">
@@ -94,7 +96,7 @@ export function SuccessScreen({ orderId, data, onReset }: SuccessScreenProps) {
           <dd className="font-medium text-ink dark:text-blush-50">{data.quantity}</dd>
         </div>
         <div>
-          <dt className="text-ink/50 dark:text-blush-100/50">Total pagado</dt>
+          <dt className="text-ink/50 dark:text-blush-100/50">Total a transferir</dt>
           <dd className="font-medium text-ink dark:text-blush-50">{formatRD(total)}</dd>
         </div>
         <div>

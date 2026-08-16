@@ -6,6 +6,7 @@ import { useRef } from "react";
 import { ArrowDown, Sparkle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { AuroraBackground } from "@/components/AuroraBackground";
+import { EVENT } from "@/lib/event-config";
 
 export function Hero() {
   const ref = useRef<HTMLDivElement>(null);
@@ -58,6 +59,15 @@ export function Hero() {
           </motion.p>
 
           <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.42 }}
+            className="mt-6 inline-block rounded-full border-y border-blush-300 px-6 py-2 text-xs font-bold uppercase tracking-[0.2em] text-blush-600 dark:border-blush-300/30 dark:text-blush-300"
+          >
+            {EVENT.dateLabel.replace("Domingo, ", "Domingo ")} · {EVENT.timeLabel}
+          </motion.div>
+
+          <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
@@ -92,8 +102,8 @@ export function Hero() {
             className="relative h-full w-full overflow-hidden rounded-[3rem] shadow-glow ring-1 ring-white/60"
           >
             <Image
-              src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=1200&auto=format&fit=crop"
-              alt="Mujer meditando en calma, con los ojos cerrados y las manos en posición de gratitud"
+              src="/images/lugar/aerea.jpg"
+              alt="Vista aérea de Villa Tabiki, rodeada de palmeras, con playa y mar turquesa al fondo"
               fill
               priority
               sizes="(max-width: 1024px) 90vw, 480px"

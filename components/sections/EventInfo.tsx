@@ -1,25 +1,17 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Calendar, Clock, MapPin, Timer, Users, Tag } from "lucide-react";
+import { Clock, Timer, Users } from "lucide-react";
 import { useCountdown } from "@/hooks/use-countdown";
-import { EVENT, TICKET_TYPES } from "@/lib/event-config";
-import { formatRD } from "@/lib/utils";
+import { EVENT } from "@/lib/event-config";
 
 const details = [
-  { icon: Calendar, label: "Fecha", value: EVENT.dateLabel },
   { icon: Clock, label: "Hora", value: EVENT.timeLabel },
-  { icon: MapPin, label: "Lugar", value: EVENT.venue },
   { icon: Timer, label: "Duración", value: EVENT.durationLabel },
   {
     icon: Users,
     label: "Cupos disponibles",
     value: `${EVENT.seatsLeft} de ${EVENT.totalSeats}`,
-  },
-  {
-    icon: Tag,
-    label: "Precio",
-    value: `Desde ${formatRD(TICKET_TYPES[0].price)}`,
   },
 ];
 
@@ -45,10 +37,10 @@ export function EventInfo() {
           className="mx-auto max-w-2xl text-center"
         >
           <span className="text-xs font-semibold uppercase tracking-[0.2em] text-mauve-600 dark:text-blush-300">
-            Detalles
+            Cuenta regresiva
           </span>
           <h2 className="mt-3 font-display text-4xl font-medium text-ink dark:text-blush-50 sm:text-5xl">
-            Todo lo que necesitas saber
+            {EVENT.dateLabel}
           </h2>
         </motion.div>
 
@@ -76,7 +68,7 @@ export function EventInfo() {
         </motion.div>
 
         {/* Tarjetas de información */}
-        <div className="mx-auto mt-16 grid max-w-5xl grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mx-auto mt-16 grid max-w-3xl grid-cols-1 gap-5 sm:grid-cols-3">
           {details.map((item, i) => (
             <motion.div
               key={item.label}
@@ -107,7 +99,7 @@ export function EventInfo() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="mx-auto mt-8 max-w-5xl"
+          className="mx-auto mt-8 max-w-3xl"
         >
           <div className="glass-card rounded-3xl p-6">
             <div className="flex items-center justify-between text-sm">

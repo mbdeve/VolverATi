@@ -8,33 +8,14 @@ const tiles = [
   {
     src: "/images/lugar/villa-completa.jpg",
     alt: "Vista frontal de Villa Tabiki, con su piscina y jardines rodeados de palmeras",
-    caption: "El lugar del evento",
   },
-  {
-    src: "/images/lugar/meditacion-jardin.jpg",
-    alt: "Mujer meditando en el jardín de la villa, rodeada de palmeras",
-    caption: "Yoga y meditación",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=800&auto=format&fit=crop",
-    alt: "Piedras de spa y toallas dispuestas para un masaje relajante",
-    caption: "Masajes",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=800&auto=format&fit=crop",
-    alt: "Mesa con un desayuno saludable servido al aire libre",
-    caption: "Stand de comida",
-  },
-];
-
-const galleryStrip = [
   {
     src: "/images/lugar/piscina-mar.jpg",
     alt: "Piscina infinita de Villa Tabiki con vista al mar Caribe entre palmeras",
   },
   {
     src: "/images/lugar/villa-tabiki-letrero.jpg",
-    alt: "Letrero de madera 'Villa Tabiki' entre las palmeras del jardín",
+    alt: "Vista amplia de los jardines de Villa Tabiki, con una cabaña de palapa entre las palmeras",
   },
 ];
 
@@ -57,39 +38,33 @@ export function Venue() {
           </h2>
         </motion.div>
 
-        {/* Grid principal 2x2 */}
-        <div className="mx-auto mt-14 grid max-w-4xl grid-cols-1 gap-4 sm:grid-cols-2">
+        <div className="mx-auto mt-14 grid max-w-5xl grid-cols-1 gap-4 sm:grid-cols-3">
           {tiles.map((tile, i) => (
             <motion.div
-              key={tile.caption}
+              key={tile.src}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.55, delay: i * 0.08 }}
+              transition={{ duration: 0.55, delay: i * 0.1 }}
               className="group relative aspect-[4/3] overflow-hidden rounded-4xl shadow-soft"
             >
               <Image
                 src={tile.src}
                 alt={tile.alt}
                 fill
-                sizes="(max-width: 640px) 90vw, 45vw"
+                sizes="(max-width: 640px) 90vw, 30vw"
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/10 to-transparent" />
-              <span className="absolute bottom-4 left-5 font-display text-lg text-white drop-shadow">
-                {tile.caption}
-              </span>
             </motion.div>
           ))}
         </div>
 
-        {/* Nombre y descripción del lugar */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="mx-auto mt-6 max-w-4xl rounded-3xl border-l-4 border-blush-500 bg-blush-50/70 p-6 text-center dark:bg-white/5 sm:p-8"
+          className="mx-auto mt-6 max-w-5xl rounded-3xl border-l-4 border-blush-500 bg-blush-50/70 p-6 text-center dark:bg-white/5 sm:p-8"
         >
           <p className="flex items-center justify-center gap-2 font-display text-2xl text-blush-600 dark:text-blush-300">
             <MapPin className="h-5 w-5" />
@@ -100,28 +75,6 @@ export function Venue() {
             te recargará el alma.
           </p>
         </motion.div>
-
-        {/* Franja adicional de fotos reales del lugar */}
-        <div className="mx-auto mt-6 grid max-w-4xl grid-cols-1 gap-4 sm:grid-cols-2">
-          {galleryStrip.map((img, i) => (
-            <motion.div
-              key={img.src}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.55, delay: 0.1 + i * 0.1 }}
-              className="relative aspect-[16/10] overflow-hidden rounded-4xl shadow-soft"
-            >
-              <Image
-                src={img.src}
-                alt={img.alt}
-                fill
-                sizes="(max-width: 640px) 90vw, 45vw"
-                className="object-cover"
-              />
-            </motion.div>
-          ))}
-        </div>
       </div>
     </section>
   );

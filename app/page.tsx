@@ -1,16 +1,16 @@
 import { Header } from "@/components/sections/Header";
 import { Hero } from "@/components/sections/Hero";
-import { Manifesto } from "@/components/sections/Manifesto";
 import { Venue } from "@/components/sections/Venue";
 import { EventInfo } from "@/components/sections/EventInfo";
-import { Benefits } from "@/components/sections/Benefits";
+import { Activities } from "@/components/sections/Activities";
 import { TicketPricing } from "@/components/sections/TicketPricing";
 import { TicketForm } from "@/components/sections/TicketForm";
-import { Important } from "@/components/sections/Important";
 import { WhyParticipate } from "@/components/sections/WhyParticipate";
-import { Testimonials } from "@/components/sections/Testimonials";
-import { Team } from "@/components/sections/Team";
+import { Important } from "@/components/sections/Important";
+import { Manifesto } from "@/components/sections/Manifesto";
 import { Creator } from "@/components/sections/Creator";
+import { Team } from "@/components/sections/Team";
+import { Closing } from "@/components/sections/Closing";
 import { Footer } from "@/components/sections/Footer";
 
 export default function Home() {
@@ -18,17 +18,17 @@ export default function Home() {
     <main className="relative overflow-x-hidden">
       <Header />
       <Hero />
-      <Manifesto />
       <Venue />
       <EventInfo />
-      <Benefits />
+      <Activities />
       <TicketPricing />
       <TicketForm />
-      <Important />
       <WhyParticipate />
-      <Testimonials />
-      <Team />
+      <Important />
+      <Manifesto />
       <Creator />
+      <Team />
+      <Closing />
       <Footer />
     </main>
   );

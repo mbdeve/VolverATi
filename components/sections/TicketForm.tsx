@@ -4,11 +4,12 @@ import * as React from "react";
 import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { AnimatePresence, motion } from "framer-motion";
-import { Ticket } from "lucide-react";
+import { ShieldCheck } from "lucide-react";
 
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { Checkbox } from "@/components/ui/checkbox";
 import {
   Select,
   SelectContent,
@@ -16,8 +17,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { PaymentMethodPicker } from "@/components/PaymentMethodPicker";
 import { TicketTypePicker } from "@/components/TicketTypePicker";
+import { BankTransferInfo } from "@/components/BankTransferInfo";
 import { PayButton } from "@/components/PayButton";
 import { SuccessScreen } from "@/components/sections/SuccessScreen";
 import { AuroraBackground } from "@/components/AuroraBackground";
@@ -47,7 +48,7 @@ export function TicketForm() {
     defaultValues: {
       ticketType: "estandar",
       quantity: 1,
-      paymentMethod: undefined,
+      imageConsent: false,
     },
   });
 
@@ -57,10 +58,30 @@ export function TicketForm() {
 
   const onSubmit = async (values: TicketFormValues) => {
     setLoading(true);
-    // Simula la llamada al procesador de pagos.
-    await new Promise((resolve) => setTimeout(resolve, 1800));
+    const orderId = generateOrderId();
+    const total = values.quantity * getTicketPrice(values.ticketType);
+
+    try {
+      // Google Apps Script no responde con cabeceras CORS legibles, así
+      // que enviamos en modo "no-cors": el request llega y se procesa
+      // igual (fila añadida + correo enviado), pero no podemos leer la
+      // respuesta desde el navegador. Usamos text/plain para evitar el
+      // preflight OPTIONS que Apps Script no maneja bien.
+      await fetch(EVENT.sheetsWebhookUrl, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify({ ...values, orderId, total }),
+      });
+    } catch (err) {
+      // Un fallo de red no debe bloquear la confirmación visual al
+      // usuario; el dato más importante (contacto) ya quedó en el
+      // formulario y puede reintentarse manualmente si hace falta.
+      console.error("No se pudo registrar la reserva en Google Sheets:", err);
+    }
+
     setLoading(false);
-    setOrder({ id: generateOrderId(), data: values });
+    setOrder({ id: orderId, data: values });
   };
 
   const handleReset = () => {
@@ -83,7 +104,7 @@ export function TicketForm() {
             Reserva tu lugar
           </span>
           <h2 className="mt-3 font-display text-4xl font-medium text-ink dark:text-blush-50 sm:text-5xl">
-            Compra tu boleto
+            Compra tu boleta
           </h2>
           <p className="mt-4 text-ink/65 dark:text-blush-100/70">
             Completa tus datos y asegura tu espacio en {EVENT.name}.
@@ -217,7 +238,7 @@ export function TicketForm() {
                   </div>
 
                   <div>
-                    <Label htmlFor="quantity">Cantidad de boletos</Label>
+                    <Label htmlFor="quantity">Cantidad de boletas</Label>
                     <Controller
                       control={control}
                       name="quantity"
@@ -232,7 +253,7 @@ export function TicketForm() {
                           <SelectContent>
                             {TICKET_QUANTITIES.map((q) => (
                               <SelectItem key={q} value={String(q)}>
-                                {q} {q === 1 ? "boleto" : "boletos"}
+                                {q} {q === 1 ? "boleta" : "boletas"}
                               </SelectItem>
                             ))}
                           </SelectContent>
@@ -261,7 +282,7 @@ export function TicketForm() {
                     <Label htmlFor="notes">Observaciones (opcional)</Label>
                     <Textarea
                       id="notes"
-                      placeholder="¿Alguna condición especial, alergia o comentario?"
+                      placeholder="¿Alguna alergia, condición especial o comentario?"
                       {...register("notes")}
                       className="mt-1.5"
                     />
@@ -269,24 +290,44 @@ export function TicketForm() {
                 </div>
 
                 <div className="mt-8">
+                  <BankTransferInfo />
+                </div>
+
+                <div className="mt-6">
                   <Controller
                     control={control}
-                    name="paymentMethod"
+                    name="imageConsent"
                     render={({ field }) => (
-                      <PaymentMethodPicker
-                        value={field.value}
-                        onChange={field.onChange}
-                        error={errors.paymentMethod?.message}
-                      />
+                      <label className="flex cursor-pointer items-start gap-3 rounded-2xl bg-blush-50/70 p-4 dark:bg-white/5">
+                        <Checkbox
+                          checked={field.value}
+                          onCheckedChange={field.onChange}
+                          className="mt-0.5"
+                        />
+                        <span className="text-sm leading-relaxed text-ink/75 dark:text-blush-100/75">
+                          Autorizo que mi imagen sea captada en fotos y
+                          videos de este evento, con fines de difusión
+                          pública.
+                        </span>
+                      </label>
                     )}
                   />
+                  {errors.imageConsent && (
+                    <p className="mt-1.5 text-xs text-red-500">
+                      {errors.imageConsent.message}
+                    </p>
+                  )}
                 </div>
 
                 <div className="mt-9">
-                  <PayButton loading={loading} />
+                  <PayButton
+                    loading={loading}
+                    label="Confirmar reserva"
+                    loadingLabel="Registrando tu reserva..."
+                  />
                   <p className="mt-3 flex items-center justify-center gap-1.5 text-center text-xs text-ink/40 dark:text-blush-100/40">
-                    <Ticket className="h-3.5 w-3.5" />
-                    Pago 100% seguro y encriptado
+                    <ShieldCheck className="h-3.5 w-3.5" />
+                    Tus datos están seguros y solo se usan para tu reserva
                   </p>
                 </div>
               </motion.form>

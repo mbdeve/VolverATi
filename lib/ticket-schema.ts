@@ -17,8 +17,8 @@ export const ticketFormSchema = z.object({
   }),
   quantity: z.coerce.number().int().min(1).max(5),
   notes: z.string().max(300, "Máximo 300 caracteres").optional(),
-  paymentMethod: z.enum(["credito", "debito", "transferencia", "pago-movil"], {
-    errorMap: () => ({ message: "Selecciona un método de pago" }),
+  imageConsent: z.boolean().refine((val) => val === true, {
+    message: "Debes autorizar el uso de tu imagen para continuar",
   }),
 });
 

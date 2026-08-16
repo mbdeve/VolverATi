@@ -1,7 +1,18 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
-import { Users } from "lucide-react";
+
+const teamPhotos = [
+  {
+    src: "/images/equipo/team-1.jpg",
+    alt: "Equipo de Volver a Ti posando juntas, sonriendo",
+  },
+  {
+    src: "/images/equipo/team-2.jpg",
+    alt: "Equipo de Volver a Ti riendo juntas en un momento espontáneo",
+  },
+];
 
 export function Team() {
   return (
@@ -14,21 +25,32 @@ export function Team() {
           transition={{ duration: 0.7 }}
           className="mx-auto max-w-3xl"
         >
-          {/* Placeholder: reemplazar por la foto real del equipo cuando esté disponible */}
-          <div className="relative aspect-video overflow-hidden rounded-4xl bg-gradient-to-br from-blush-200 to-blush-300 shadow-soft dark:from-white/10 dark:to-white/5">
-            <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 text-ink/60 dark:text-blush-100/60">
-              <Users className="h-9 w-9" />
-              <p className="text-sm font-medium">
-                Foto del equipo Volver a Ti — Segunda edición
-              </p>
-            </div>
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            {teamPhotos.map((photo, i) => (
+              <motion.div
+                key={photo.src}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-60px" }}
+                transition={{ duration: 0.6, delay: i * 0.1 }}
+                className="relative aspect-[4/3] overflow-hidden rounded-4xl shadow-soft"
+              >
+                <Image
+                  src={photo.src}
+                  alt={photo.alt}
+                  fill
+                  sizes="(max-width: 640px) 90vw, 45vw"
+                  className="object-cover"
+                />
+              </motion.div>
+            ))}
           </div>
 
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.15 }}
+            transition={{ duration: 0.6, delay: 0.25 }}
             className="mx-auto mt-8 max-w-2xl text-balance text-center font-display text-xl italic leading-relaxed text-ink/80 dark:text-blush-100/80"
           >
             &ldquo;Sola avanzas rápido, pero en compañía llegas más lejos.

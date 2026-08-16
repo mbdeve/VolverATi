@@ -24,7 +24,7 @@ export function Creator() {
           >
             <Image
               src="/images/equipo/manuela-sarante.jpeg"
-              alt="Manuela Sarante, creadora de Volver a Ti"
+              alt="Manuela Sarante Peña, creadora de Volver a Ti"
               fill
               sizes="160px"
               className="object-cover"
@@ -38,7 +38,7 @@ export function Creator() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mx-auto mt-8 max-w-xl text-balance font-display text-xl italic leading-relaxed text-ink dark:text-blush-50"
           >
-            &ldquo;Hola, mi nombre es Manuela Sarante, creadora de Volver a
+            &ldquo;Hola, mi nombre es Manuela Sarante Peña, creadora de Volver a
             Ti. Estoy muy feliz de que estés aquí, decidiéndote a dar este
             paso tan importante para ti. El 4 de octubre comenzamos juntas
             el camino correcto para sanar, crecer y florecer.&rdquo;
@@ -51,7 +51,7 @@ export function Creator() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="mt-5 font-display text-lg text-blush-600 dark:text-blush-300"
           >
-            Manuela Sarante
+            Manuela Sarante Peña
           </motion.p>
         </motion.div>
       </div>
