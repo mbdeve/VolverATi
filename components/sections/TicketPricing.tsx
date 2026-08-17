@@ -92,12 +92,8 @@ export function TicketPricing() {
             incluyen un masaje si son compradas en pre-venta.
           </p>
           <p className="mt-2">
-            <strong className="text-ink dark:text-blush-50">No incluyen:</strong>{" "}
-            hospedaje, transporte.
-          </p>
-          <p className="mt-1">
-            <strong className="text-ink dark:text-blush-50">Transporte opcional:</strong>{" "}
-            RD$1,500 pesos adicional.
+            <strong className="text-ink dark:text-blush-50">No incluye:</strong>{" "}
+            hospedaje.
           </p>
         </motion.div>
       </div>

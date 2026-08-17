@@ -12,7 +12,7 @@ const socials = [
       </svg>
     ),
   },
-  { name: "Instagram", href: "https://instagram.com/volveratievento", icon: Instagram },
+  { name: "Instagram", href: "https://www.instagram.com/volveratims", icon: Instagram },
   { name: "Facebook", href: "https://facebook.com/volveratievento", icon: Facebook },
 ];
 

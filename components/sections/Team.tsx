@@ -6,11 +6,11 @@ import { motion } from "framer-motion";
 const teamPhotos = [
   {
     src: "/images/equipo/team-1.jpg",
-    alt: "Equipo de Volver a Ti posando juntas, sonriendo",
+    alt: "Equipo de Volver a Ti abrazadas, con camisas blancas",
   },
   {
     src: "/images/equipo/team-2.jpg",
-    alt: "Equipo de Volver a Ti riendo juntas en un momento espontáneo",
+    alt: "Equipo de Volver a Ti riendo juntas, con camisas blancas",
   },
 ];
 

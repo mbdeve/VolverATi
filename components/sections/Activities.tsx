@@ -15,14 +15,9 @@ const activities = [
     caption: "Pilates",
   },
   {
-    src: "/images/actividades/relajacion.jpg",
-    alt: "Piscina de Villa Tabiki con vista al mar entre palmeras",
-    caption: "Ejercicios de relajación",
-  },
-  {
     src: "/images/actividades/stand.jpg",
     alt: "Concepto ilustrativo de un stand de comida y bebidas al aire libre, entre palmeras, con la marca Volver a Ti",
-    caption: "Stand — comida, bebidas, postres y cócteles",
+    caption: "Stand",
   },
 ];
 
@@ -45,10 +40,10 @@ export function Activities() {
           </h2>
         </motion.div>
 
-        <div className="mx-auto mt-14 grid max-w-4xl grid-cols-1 gap-4 sm:grid-cols-2">
+        <div className="mx-auto mt-14 grid max-w-5xl grid-cols-1 gap-4 sm:grid-cols-3">
           {activities.map((a, i) => (
             <motion.div
-              key={a.caption}
+              key={a.src}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
@@ -59,11 +54,11 @@ export function Activities() {
                 src={a.src}
                 alt={a.alt}
                 fill
-                sizes="(max-width: 640px) 90vw, 45vw"
+                sizes="(max-width: 640px) 90vw, 30vw"
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/10 to-transparent" />
-              <span className="absolute bottom-4 left-5 right-5 font-display text-lg text-white drop-shadow">
+              <span className="absolute bottom-4 left-5 font-display text-lg text-white drop-shadow">
                 {a.caption}
               </span>
             </motion.div>
