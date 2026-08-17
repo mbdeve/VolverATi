@@ -103,7 +103,7 @@ export function Hero() {
           >
             <Image
               src="/images/lugar/aerea.jpg"
-              alt="Vista aérea de Villa Tabiki, rodeada de palmeras, con playa y mar turquesa al fondo"
+              alt="Piscina de Villa Tabiki vista al nivel del agua, con las cabañas blancas y palmeras alrededor"
               fill
               priority
               sizes="(max-width: 1024px) 90vw, 480px"
