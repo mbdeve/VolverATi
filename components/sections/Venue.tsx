@@ -11,7 +11,7 @@ const tiles = [
   },
   {
     src: "/images/lugar/piscina-mar.jpg",
-    alt: "Piscina infinita de Villa Tabiki con vista al mar Caribe entre palmeras",
+    alt: "Piscina de Villa Tabiki vista al nivel del agua, con las cabañas blancas y palmeras alrededor",
   },
   {
     src: "/images/lugar/villa-tabiki-letrero.jpg",

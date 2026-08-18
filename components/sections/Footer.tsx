@@ -14,6 +14,15 @@ const socials = [
   },
   { name: "Instagram", href: "https://www.instagram.com/volveratims", icon: Instagram },
   { name: "Facebook", href: "https://facebook.com/volveratievento", icon: Facebook },
+  {
+    name: "TikTok",
+    href: "https://www.tiktok.com/@volveratims",
+    icon: (props: React.SVGProps<SVGSVGElement>) => (
+      <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+        <path d="M16.6 5.82c-1-.9-1.6-2.17-1.6-3.57h-3.15v13.1c0 1.55-1.26 2.8-2.8 2.8a2.8 2.8 0 0 1 0-5.6c.28 0 .55.04.8.12V9.5a5.95 5.95 0 0 0-.8-.05A5.96 5.96 0 0 0 3.1 15.4a5.96 5.96 0 0 0 5.95 5.96 5.96 5.96 0 0 0 5.95-5.96V9.1a8.85 8.85 0 0 0 5.05 1.58V7.53c-1.24 0-2.4-.4-3.35-1.08a5.9 5.9 0 0 1-.1-.63Z" />
+      </svg>
+    ),
+  },
 ];
 
 const legalLinks = [

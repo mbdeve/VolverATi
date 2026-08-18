@@ -85,16 +85,19 @@ export function TicketPricing() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="mx-auto mt-6 max-w-4xl rounded-3xl bg-blush-50 p-6 text-sm leading-relaxed text-ink/70 dark:bg-white/5 dark:text-blush-100/70"
+          className="mx-auto mt-6 flex max-w-4xl items-start gap-3 rounded-3xl border-2 border-gold-400 bg-gold-500/10 p-6 text-sm leading-relaxed text-ink/80 shadow-soft dark:border-gold-500/60 dark:bg-gold-500/10 dark:text-blush-100/80"
         >
-          <p>
-            <strong className="text-ink dark:text-blush-50">Ambas boletas</strong>{" "}
-            incluyen un masaje si son compradas en pre-venta.
-          </p>
-          <p className="mt-2">
-            <strong className="text-ink dark:text-blush-50">No incluye:</strong>{" "}
-            hospedaje.
-          </p>
+          <Sparkles className="mt-0.5 h-5 w-5 shrink-0 text-gold-600" />
+          <div>
+            <p>
+              <strong className="text-ink dark:text-blush-50">Ambas boletas</strong>{" "}
+              incluyen un masaje si son compradas en pre-venta.
+            </p>
+            <p className="mt-2">
+              <strong className="text-ink dark:text-blush-50">No incluye:</strong>{" "}
+              hospedaje.
+            </p>
+          </div>
         </motion.div>
       </div>
     </section>

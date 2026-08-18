@@ -26,7 +26,7 @@ export const TICKET_TYPES = [
     label: "Boleta Estándar",
     price: 5595,
     benefits: [
-      "Acceso al buffet de desayuno, almuerzo, bebidas (no alcohólicas) y postres",
+      "Acceso a buffet y bebidas no alcohólicas",
       "Bolsa de regalo",
       "Acceso a todas las actividades y dinámicas del evento",
     ],
@@ -36,9 +36,10 @@ export const TICKET_TYPES = [
     label: "Boleta VIP",
     price: 8595,
     benefits: [
-      "Preferencia en asientos en conferencias, yoga y pilates",
-      "Bolsa de regalo premium",
-      "Acceso al open bar (cócteles)",
+      "Todos los beneficios de la Boleta Estándar",
+      "Asientos preferenciales en conferencias y áreas de actividades",
+      "Bolsa de regalo Premium",
+      "Acceso ilimitado al Open Bar de cócteles",
     ],
   },
 ] as const;
